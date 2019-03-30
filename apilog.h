@@ -7,6 +7,10 @@
 #include <lauxlib.h>
 
 
+#ifndef __has_attribute
+#define __has_attribute( x ) 0
+#endif
+
 #ifndef APILOG_API
 #if defined( __GNUC__ ) || __has_attribute( __unused__ )
 #define APILOG_API __attribute__((__unused__)) static
