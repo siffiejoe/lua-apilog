@@ -14,8 +14,10 @@ API calls and the Lua stack during development without much effort.
 `#include` the header file `apilog.h` and define a static variable
 `apilog_func` of type `char const*` in every function where you want
 to trace Lua stack effects. On C99 compilers (and later) the line
-`static char const* apilog_func = __func__;` is recommended. All
-logged API calls and stack effects are written to `stderr`.
+`static char const* apilog_func = __func__;` is recommended. In case
+you want to log *all* Lua API calls in a C file, `#define apilog_func
+__func__` should do it. All logged API calls and stack effects are
+written to `stderr`.
 
 Typical output might look like this:
 
